@@ -42,6 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # Django Rest Framework
+    'rest_framework',
+    
+    # Custom apps
+    'apps.users.apps.UsersConfig',
+    'apps.posts.apps.PostsConfig',
+    'apps.comments.apps.CommentsConfig',
 ]
 
 MIDDLEWARE = [
@@ -52,14 +60,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
-    # Django Rest Framework
-    'rest_framework',
-    
-    # Custom apps
-    'apps.users.apps.UsersConfig',
-    'apps.posts.apps.PostsConfig',
-    'apps.comments.apps.CommentsConfig',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -95,7 +95,7 @@ DATABASES = {
         'HOST': os.environ.get('DB_HOST'),
         'PORT': os.environ.get('DB_PORT'),
         'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES', NAMES 'utf8mb4'",
         },
     }
 }
